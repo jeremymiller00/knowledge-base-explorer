@@ -18,10 +18,7 @@ from pathlib import Path
 from utils.logger import configure_logging
 
 logger = configure_logging()
-# logger = logging.getLogger(__name__)
-print(logger)
 
-sys.exit(0)
 
 class Database:
     """Handles database operations for the knowledge base."""
@@ -86,7 +83,7 @@ class Database:
                         timestamp BIGINT,
                         content TEXT,
                         summary TEXT,
-                        embeddings vector(1024),
+                        embeddings vector(1536),
                         obsidian_markdown TEXT,
                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -424,8 +421,8 @@ async def main(data_dir: str):
             if file_path.endswith(".json"):
                 # print(os.path.join(subdir, file))
                 logger.info(f"Accessed {file_path}")
-                with open() as file:
-                    data = json.load(os.path.join(subdir, file))
+                with open(file_path) as file:
+                    data = json.load(file)
                 content_id = await db.store_content(data)
                 logger.info(f"Populated database with {content_id}")
 
