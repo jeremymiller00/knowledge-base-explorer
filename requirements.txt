@@ -1,0 +1,9 @@
+fastapi
+pydantic
+numpy
+scikit-learn
+transformers
+sqlalchemy
+aiohttp
+psycopg2-binary
+numpy

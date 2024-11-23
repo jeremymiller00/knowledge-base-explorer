@@ -1,0 +1,23 @@
+'''
+[project]
+name = "knowledge_base_explorer"
+version = "0.1.0"
+description = "A knowledge base exploration system with automated content organization and discovery"
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi>=0.68.0",
+    "pydantic>=1.8.2",
+    "numpy>=1.21.0",
+    "scikit-learn>=0.24.2",
+    "transformers>=4.5.0",
+    "sqlalchemy>=1.4.0",
+    "aiohttp>=3.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.5b2",
+    "mypy>=0.910",
+]
+'''

@@ -1,0 +1,28 @@
+"""
+Sample configuration file for the examples.
+"""
+database_url: "postgresql://user:pass@localhost:5432/knowledge_base"
+index_path: "./data/content_index"
+nlp_model_path: "./models/categorizer"
+embedding_model: "sentence-transformers/all-mpnet-base-v2"
+user_data_path: "./data/user_profiles"
+
+processing:
+  batch_size: 100
+  max_workers: 3
+  parallel_processing: true
+
+recommendation:
+  novelty_weight: 0.3
+  diversity_weight: 0.3
+  recency_weight: 0.4
+  max_recommendations: 10
+
+search:
+  similarity_threshold: 0.75
+  max_results: 50
+  enable_semantic_search: true
+
+logging:
+  level: "INFO"
+  file_path: "./logs/knowledge_base.log"
