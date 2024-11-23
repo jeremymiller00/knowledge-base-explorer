@@ -15,8 +15,10 @@ import psycopg2
 from psycopg2.extras import Json, execute_values
 import numpy as np
 from pathlib import Path
+from src.knowledge_base_explorer.utils.logger import configure_logging
 
-logger = logging.getLogger(__name__)
+logger = configure_logging()
+# logger = logging.getLogger(__name__)
 
 
 class Database:
@@ -416,9 +418,15 @@ async def main(data_dir: str):
     # loop through directories in data_dir
     for subdir, dirs, files in os.walk(data_dir):
         for file in files:
-            if os.path.join(subdir, file).endswith(".json"):
+            file_path = os.path.join(subdir, file)
+            if file_path.endswith(".json"):
                 # print(os.path.join(subdir, file))
-            
+                logger.info(f"Accessed {file_path}")
+                with open() as file:
+                    data = json.load(os.path.join(subdir, file))
+                content_id = await db.store_content(data)
+                logger.info(f"Populated database with {content_id}")
+
     # # Store new content
     # content_id = await db.store_content({
     #     'url': 'https://example.com',
