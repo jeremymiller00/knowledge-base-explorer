@@ -1,6 +1,6 @@
 # My Project
 
-My Decription
+My Description
 
 # To run the main program, first start the virtual environment, then execute the app module
 ## Create and install dependencies, if necessary
@@ -23,7 +23,10 @@ python explorer/app.py -h
 https://docs.python-guide.org/writing/structure/
 
 ## ToDo
-* A thing
+* write tests
+* Move to uv based workflow
+* add features from knowledgebaseinterface from replit agent
+* test new layout
 
 ### _sample mermaid chart_
 ```mermaid

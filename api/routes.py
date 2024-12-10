@@ -1,8 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from typing import Dict, Any, List
 
-app = FastAPI()
+from utils.logger import configure_logging
 
+app = FastAPI()
+logger = configure_logging()
 
 @app.post("/content")
 async def ingest_content(content: Dict[str, Any]) -> Dict[str, Any]:
@@ -22,4 +24,3 @@ async def get_recommendations(user_id: str) -> List[Dict[str, Any]]:
         return [{"content_id": "id", "title": "title", "score": 0.95}]
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
